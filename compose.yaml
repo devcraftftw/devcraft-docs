@@ -1,0 +1,12 @@
+services:
+  devcraft-docs:
+    container_name: devcraft-docs
+    image: ghcr.io/devcraftftw/devcraft-docs:latest
+    pull_policy: always
+    restart: unless-stopped
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

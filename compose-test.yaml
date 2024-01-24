@@ -1,0 +1,10 @@
+services:
+  docusaurus:
+    image: "${TESTING_IMAGE}"
+  
+  docusaurus-curl:
+    image: "${TESTING_IMAGE}"
+    depends_on:
+      docusaurus:
+        condition: service_started
+    command: sleep 10 && curl --fail http://docusaurus:80 || exit 1

@@ -1,0 +1,8 @@
+services:
+  devcraft-docs:
+    container_name: devcraft-docs
+    build: 
+      context: .
+    restart: unless-stopped
+    ports:
+     - 3000:80
