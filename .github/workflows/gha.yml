@@ -318,3 +318,4 @@ jobs:
 
       - name: 'Docker Compose Up'
         run: docker compose -f ./compose.yaml up -d --force-recreate
+        
