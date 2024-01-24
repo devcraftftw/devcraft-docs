@@ -16,7 +16,10 @@ COPY --chown=node:node . /home/node/app/
 FROM base as development
 WORKDIR /home/node/app
 # Install (not ci) with dependencies, and for Linux vs. Linux Musl (which we use for -alpine)
-RUN npm install
+# RUN npm install
+RUN --mount=type=cache,target=/usr/src/app/.npm \
+    npm set cache /usr/src/app/.npm && \
+    npm ci
 # Switch to the node user vs. root
 # USER node
 # # Expose port 3000
